@@ -1,0 +1,26 @@
+# Ignoruj pliki tymczasowe wygenerowane przez różne edytory i narzędzia
+*~
+*.swp
+*.tmp
+
+# Ignoruj katalogi i pliki generowane przez systemy operacyjne
+.DS_Store
+Thumbs.db
+
+# Ignoruj pliki konfiguracyjne i pliki z hasłami
+config.ini
+secrets.txt
+
+# Ignoruj pliki logów
+logs/
+
+# Ignoruj pliki kompilowane i pliki wykonywalne
+*.o
+*.out
+*.exe
+
+# Ignoruj katalogi i pliki wygenerowane przez narzędzia budowania
+__pycache__
+node_modules/
+build/
+dist/
