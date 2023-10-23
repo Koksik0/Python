@@ -6,9 +6,7 @@ result = ''.join(parts) + '|'
 temp = ""
 for x in range(x+1):
     temp += str(x)
-    a = str(x)
-    if x%10 == 9 and a[0]=='9':
-        print(a)
+    if x%10 == 9 and str(x)[0]=='9':
         temp += ' ' * (gap + (0 - len(str(x))))
     else:
         temp += ' ' * (gap + (1 - len(str(x))))
