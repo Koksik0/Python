@@ -5,4 +5,4 @@ for x in sequence:
     for y in x:
         temp += y
     result.append(temp)
-print(result)
+assert result == [0,4,3,7,18]
