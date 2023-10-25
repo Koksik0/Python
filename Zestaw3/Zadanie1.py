@@ -10,3 +10,5 @@ for i in "axby":
 
 for i in "axby":
     print (ord(i) if ord(i) < 100 else i)
+
+#W tym zadaniu niepotrzebne są średniki
