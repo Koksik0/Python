@@ -21,5 +21,6 @@ def odwracanieRekurencyjnie(L: list, left: int, right: int) -> list:
 
 numbers = [1,2,3,4,5,6,7,8,9,10]
 numbers1 = [1,2,3,4,5,6,7,8,9,10]
-print(odwracanieIteracyjnie(numbers,4,5))
-print(odwracanieRekurencyjnie(numbers1,2,9))
+
+assert odwracanieIteracyjnie(numbers,4,5) == [1,2,3,4,6,5,7,8,9,10]
+assert odwracanieRekurencyjnie(numbers1,2,9) == [1,2,10,9,8,7,6,5,4,3]
