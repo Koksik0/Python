@@ -1,10 +1,16 @@
-first_sequence = input("Podaj pierwszą sekwencje")
-second_sequence = input("Podaj drugą sekwencje")
-first_set = set()
-second_set = set()
+first_sequence = input("Podaj pierwszą sekwencje: ")
+second_sequence = input("Podaj drugą sekwencje: ")
+
+result1 = []
 for x in first_sequence:
-    first_set.add(x)
+    for y in second_sequence:
+        if x == y and x not in result1:
+            result1.append(x)
+
+result2 = list(first_sequence)
 for x in second_sequence:
-    second_set.add(x)
-print(first_set & second_set)
-print(first_set | second_set)
+    if x not in first_sequence:
+        result2.append(x)
+
+print(result1)
+print(result2)
