@@ -11,4 +11,4 @@ def fibonacci(n) -> int:
             a = b-a
         return a
 
-print(fibonacci(5))
+assert fibonacci(5) == 5
