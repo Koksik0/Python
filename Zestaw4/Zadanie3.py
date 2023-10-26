@@ -4,4 +4,4 @@ def factorial(n) -> int:
         result *= x
     return result
 
-print(factorial(10))
+assert factorial(5) == 120
