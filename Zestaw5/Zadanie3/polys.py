@@ -67,9 +67,9 @@ def eval_poly(poly, x0) -> float:
     """
     :return: Value of the polynomial at point x
     """
-    result = poly[0]
-    for x in range(1, len(poly)):
-        result = result * x0 + poly[x]
+    result = 0
+    for coefficient in reversed(poly):
+        result = result * x0 + coefficient
     return result
 
 
@@ -84,7 +84,7 @@ def combine_poly(poly1, poly2) -> list:
             temp2 = [y * poly1[x] for y in temp2]
             temp.append(temp2)
         else:
-            temp.append(0)
+            temp.append([0])
     result = temp[0]
     for x in range(1, len(temp)):
         result = add_poly(result, temp[x])
