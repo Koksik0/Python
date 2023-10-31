@@ -33,10 +33,10 @@ def mul_poly(poly1, poly2):
     """
     :return: poly1 * poly2
     """
-    result = [0] * (len(poly1) + len(poly2) -1)
+    result = [0] * (len(poly1) + len(poly2) - 1)
     for x in range(len(poly1)):
         for y in range(len(poly2)):
-            result[x+y] += poly1[x] * poly2[y]
+            result[x + y] += poly1[x] * poly2[y]
     return result
 
 
@@ -73,7 +73,23 @@ def eval_poly(poly, x0) -> float:
     return result
 
 
-def combine_poly(poly1, poly2): pass
+def combine_poly(poly1, poly2) -> list:
+    """
+    :return: poly1(poly2)
+    """
+    temp = []
+    for x in range(1, len(poly1)):
+        if poly1[x] != 0:
+            temp2 = pow_poly(poly2, x)
+            temp2 = [y * poly1[x] for y in temp2]
+            temp.append(temp2)
+        else:
+            temp.append(0)
+    result = temp[0]
+    for x in range(1, len(temp)):
+        result = add_poly(result, temp[x])
+    result[0] += poly1[0]
+    return result
 
 
 def pow_poly(poly, n) -> list:
@@ -81,7 +97,7 @@ def pow_poly(poly, n) -> list:
     :return: poly^n
     """
     temp = poly
-    for x in range(n-1):
+    for x in range(n - 1):
         temp = mul_poly(temp, poly)
     return temp
 
@@ -91,8 +107,8 @@ def diff_poly(poly) -> list:
     :return: d/dx(poly)
     """
     result = [poly[1]]
-    for x in range(2,len(poly)):
-        if poly[x] !=0:
+    for x in range(2, len(poly)):
+        if poly[x] != 0:
             result.append(poly[x] * x)
         else:
             result.append(0)
