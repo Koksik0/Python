@@ -7,7 +7,7 @@ class Triangle:
     """Klasa reprezentująca trójkąty na płaszczyźnie."""
 
     def __init__(self, x1, y1, x2, y2, x3, y3):
-        if x1 == x2 == x3 or y1 == y2 == y3:
+        if x1 * (y2 - y3) + x2 * (y3 - y1) + x3 * (y1 - y2) == 0:
             raise ValueError("Punkty nie powinny leżeć na jednej prostej")
         self.pt1 = Point(x1, y1)
         self.pt2 = Point(x2, y2)
