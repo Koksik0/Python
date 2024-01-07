@@ -29,32 +29,36 @@ class SingleList:
             node = node.next
 
     def remove_tail(self) -> Node:
+        if self.head is None:
+            raise ValueError("Error: The list is empty.")
         result = self.tail
         self.length -= 1
-        node = self.head
-        current = None
-        while node.next is not None:
-            current = node
-            node = node.next
-        if current is None:
-            raise ValueError("Error")
-        current.next = None
-        self.tail = current
+
+        if self.head == self.tail:
+            self.head = None
+            self.tail = None
+        else:
+            node = self.head
+            current = None
+            while node.next is not None:
+                current = node
+                node = node.next
+            current.next = None
+            self.tail = current
         return result
 
     def join(self, other):
-        temp = other.tail
-        self.tail.next = other.head
-        self.tail = temp
+        if not self.head and not other.head:
+            pass
+        elif not self.head:
+            self.head = other.head
+            self.tail = other.tail
+        elif other.head:
+            self.tail.next = other.head
+            self.tail = other.tail
         other.clear()
 
     def clear(self):
-        current = self.head
-        while current:
-            next_node = current.next
-            del current
-            current = next_node
-
         self.head = None
         self.tail = None
         self.length = 0

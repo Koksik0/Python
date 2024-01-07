@@ -28,6 +28,11 @@ class TestSingleList(unittest.TestCase):
         self.list.insert_head(Node(0))
         self.list.insert_tail(Node(2))
         self.list.join(self.list2)
+        self.list3 = SingleList(Node(10))
+        self.list3.remove_tail()
+        self.list4 = SingleList(Node(10))
+        self.list3.join(self.list4)
+        self.assertEqual(self.list3.head, Node(10))
         self.assertEqual(self.list.head, Node(0))
         self.assertEqual(self.list.tail, Node(13))
 
